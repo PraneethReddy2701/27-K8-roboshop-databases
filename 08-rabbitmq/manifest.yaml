@@ -11,3 +11,23 @@ type: Opaque
 data:
   RABBITMQ_DEFAULT_USER: "cm9ib3Nob3A=" 
   RABBITMQ_DEFAULT_PASS: "cm9ib3Nob3AxMjM="
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rabbitmq-headless
+  namespace: roboshop
+  labels:
+    component: rabbitmq
+    project: roboshop
+    tier: database
+spec:
+  clusterIP: None
+  selector:
+    component: rabbitmq
+    project: roboshop
+    tier: database
+  ports:
+  - protocol: TCP
+    port: 5672
+    targetPort: 5672
