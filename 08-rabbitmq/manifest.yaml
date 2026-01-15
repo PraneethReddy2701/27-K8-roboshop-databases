@@ -35,7 +35,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: rabbitmq-headless
+  name: rabbitmq-svc
   namespace: roboshop
   labels:
     component: rabbitmq
