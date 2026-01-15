@@ -117,3 +117,23 @@ spec:
             items:
               - key: nginx.conf
                 path: nginx.conf
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  namespace: roboshop
+  labels:
+    component: frontend
+    project: roboshop
+    tier: web
+spec:
+  type: LoadBalancer
+  selector:
+    component: frontend
+    project: roboshop
+    tier: web
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
