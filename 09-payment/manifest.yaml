@@ -90,6 +90,7 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: payment
+  namespace: roboshop
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
