@@ -10,3 +10,24 @@ metadata:
 type: Opaque
 data:
   MYSQL_ROOT_PASSWORD: "Um9ib1Nob3BAMQ=="
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-headless
+  namespace: roboshop
+  labels:
+    component: mysql
+    project: roboshop
+    tier: database
+spec:
+  clusterIP: None
+  selector:
+    component: mysql
+    project: roboshop
+    tier: database
+  ports:
+  - protocol: TCP
+    port: 3306
+    targetPort: 3306
+---
